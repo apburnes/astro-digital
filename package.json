@@ -1,0 +1,35 @@
+{
+  "name": "astro-digital",
+  "version": "0.0.1",
+  "description": "A node client to the Astro Digital API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apburnes/node-astro-digital"
+  },
+  "keywords": [
+    "astro",
+    "digital",
+    "landsat",
+    "api",
+    "satellite"
+  ],
+  "author": "apburnes <bizzurnzz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apburnes/node-astro-digital/issues"
+  },
+  "homepage": "https://github.com/apburnes/node-astro-digital",
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "lodash": "^3.7.0",
+    "request": "^2.55.0"
+  },
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^2.2.4"
+  }
+}

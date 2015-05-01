@@ -3,7 +3,6 @@
 var expect = require('chai').expect;
 
 var AstroDigital = require('../');
-var astro = AstroDigital();
 
 var query = 'sceneID:LC80110442014358LGN00'
 var invalidQuery = 'notaquery';
@@ -15,6 +14,18 @@ var defaultLimit = 25;
 var totalScenes = 462376;
 
 describe('search', function() {
+
+  var astro;
+
+  beforeEach(function(done) {
+    astro = AstroDigital();
+    done();
+  });
+
+  afterEach(function(done) {
+    astro = AstroDigital();
+    done();
+  });
 
   it('should return 200 with the scene when passed a string with a callback', function(done) {
     astro.search(query, function(err, res) {

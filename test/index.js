@@ -18,6 +18,7 @@ describe('AstroDigital', function() {
     expect(astro.baseUrl).to.equal(baseUrl);
     expect(astro.limitCount).to.equal(defaultLimit);
     expect(astro.skipCount).to.equal(defaultSkip);
+    expect(astro.query).to.equal('');
     expect(astro.request).to.be.a('function');
     expect(astro.limit).to.be.a('function');
     expect(astro.skip).to.be.a('function');

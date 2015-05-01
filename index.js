@@ -16,13 +16,16 @@ function AstroDigital(options) {
   options = options || {};
 
   this.defaults = {
+    apiVersion: 'v1',
+    query: '',
     limitCount: '25',
     skipCount: '0'
   };
 
   this.version = VERSION;
-  this.apiVersion = options.apiVersion || 'v1';
+  this.apiVersion = options.apiVersion || this.defaults.apiVersion;
   this.baseUrl = url.resolve(BASE_URL, this.apiVersion);
+  this.query = options.query || this.defaults.query;
   this.limitCount = options.limit || this.defaults.limitCount;
   this.skipCount = options.skip || this.defaults.skipCount;
 
@@ -35,5 +38,6 @@ function AstroDigital(options) {
 AstroDigital.prototype.search = search.search;
 AstroDigital.prototype.limit = search.limit;
 AstroDigital.prototype.skip = search.skip;
+AstroDigital.prototype.sceneId = search.sceneId;
 
 module.exports = AstroDigital;

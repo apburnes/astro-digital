@@ -10,6 +10,9 @@ var scenes = ['LC80110442014358LGN00', 'LC82281122014358LGN00'];
 var sceneFixture = require('./fixtures/LC80110442014358LGN00.json');
 var scenesFixture = require('./fixtures/multipleScenes.json');
 
+var obj = {};
+var num = 123;
+
 describe('sceneId', function() {
   var astro;
 
@@ -24,28 +27,64 @@ describe('sceneId', function() {
   });
 
   it('should return a success 200 with the scene id with a callback', function(done) {
-    astro
-      .sceneId(scene)
-      .search(function(err, res) {
-        var response = res[0];
-        var result = res[1];
-
-        expect(response.statusCode).to.equal(200);
-        expect(result).to.deep.equal(sceneFixture);
-        done(err);
-      });
+    astro.sceneId(scene, function(err, res, result) {
+      expect(res.statusCode).to.equal(200);
+      expect(result).to.deep.equal(sceneFixture);
+      done(err);
+    });
   });
 
   it('should return a success 200 with the scene array with a callback', function(done) {
-    astro
-      .sceneId(scenes)
-      .search(function(err, res) {
-        var response = res[0];
-        var result = res[1];
+    astro.sceneId(scenes, function(err, res, result) {
+      expect(res.statusCode).to.equal(200);
+      expect(result).to.deep.equal(scenesFixture);
+      done(err);
+    });
+  });
 
-        expect(response.statusCode).to.equal(200);
-        expect(result).to.deep.equal(scenesFixture);
-        done(err);
+
+  it('should eturn a success 200 with the scene id with a promise', function() {
+    return astro.sceneId(scene)
+      .spread(function(res, result) {
+        expect(res.statusCode).to.equal(200);
+        return expect(result).to.deep.equal(sceneFixture);
+      });
+  });
+
+  it('should eturn a success 200 with the scene array with a promise', function() {
+    return astro.sceneId(scenes)
+      .spread(function(res, result) {
+        expect(res.statusCode).to.equal(200);
+        return expect(result).to.deep.equal(scenesFixture);
+      });
+  });
+
+  it('should return an Error when passed an object with a callback', function(done) {
+    astro.sceneId(obj, function(err) {
+      expect(err).to.be.instanceof(Error);
+      done();
+    });
+  });
+
+  it('hould return an Error when passed a number with a callback', function(done) {
+    astro.sceneId(num, function(err) {
+      expect(err).to.be.instanceof(Error);
+      done();
+    });
+  });
+
+  it('should return an Error when passed an object with a promise', function() {
+    return astro.sceneId(obj)
+      .catch(function(err) {
+        return expect(err).to.be.instanceof(Error);
+      });
+  });
+
+
+  it('should return an Error when passed a number with a promise', function() {
+    return astro.sceneId(num)
+      .catch(function(err) {
+        return expect(err).to.be.instanceof(Error);
       });
   });
 });

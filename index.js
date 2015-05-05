@@ -36,8 +36,9 @@ function AstroDigital(options) {
 }
 
 AstroDigital.prototype.search = search.search;
+AstroDigital.prototype.sceneId = search.sceneId;
+AstroDigital.prototype.cloudCover = search.cloudCover;
 AstroDigital.prototype.limit = search.limit;
 AstroDigital.prototype.skip = search.skip;
-AstroDigital.prototype.sceneId = search.sceneId;
 
 module.exports = AstroDigital;

@@ -6,9 +6,16 @@ A node client to the Astor Digital [API](http://docs.astrodigital.com/v1.0/docs)
 
 `$ npm install @apburnes/astro-digital`
 
-## API
+## new AstroDigital([options]);
 
-#### new AstroDigital([options]);
+Contstruct a new `AstroDigital` instace to publish and search scenes and metadata
+
+__Params__
+- `options`: Object
+  - `limit`: Integer - Default `25`
+  - `skip`: Integer - Default `0`
+  - `apiVersion`: String - Default `'v1'`
+
 ```js
 var AstroDigital = require('@apburnes/astro-digital');
 
@@ -20,6 +27,8 @@ var options = {
 
 var astro = new AstroDigital(options);
 ```
+
+## Search API
 
 #### astro.search([query], [callback])
 
@@ -86,9 +95,11 @@ astro.sceneId(scene)
   });
 ```
 
+### Chaining Search Queries
+
 #### astro.limit(count)
 
-This method can be prepended in a chain before the search is called to change the default limit;
+This method can be prepended in a chain before the search is called to change the default limit.
 
 __Params__
 - `count`: Integer of number of results returned
@@ -105,9 +116,9 @@ astro
   });
 ```
 
-### astro.skip(count)
+#### astro.skip(count)
 
-This method can be prepended in a chain before the search is called to change the default skip;
+This method can be prepended in a chain before the search is called to change the default skip.
 
 __Params__
 - `count`: Integer of number of results skipped
@@ -122,6 +133,27 @@ astro
 
     result // will return an object
            // with the 'results' array of 25 results after the firstskipping 100
+  });
+```
+
+#### astro.cloudCover(range)
+
+This method can be prepended in a chain before the search is called to query scenes within the cloud cover range.
+
+__Params__
+- `range`: Array of numbers of results returned
+
+```js
+var range = [0, 20];
+
+astro
+  .cloudCover(range)
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    results // returns scenes with 0% to 20% cloud cover
   });
 ```
 

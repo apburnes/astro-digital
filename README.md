@@ -138,7 +138,7 @@ astro
 
 #### astro.cloudCover(range)
 
-This method can be prepended in a chain before the search is called to query scenes within the cloud cover range.
+This method can be prepended in a chain before the search is called to query scenes within the cloud cover field range.
 
 __Params__
 - `range`: Array of numbers of results returned
@@ -156,6 +156,12 @@ astro
     results // returns scenes with 0% to 20% cloud cover
   });
 ```
+
+#### astro.cloudCoverFull(range)
+
+This method can be prepended in a chain before the search is called to query scenes within the cloud cover field range.
+
+Same as [`astro.cloudCover(range)`](#astrocloudcoverrange)
 
 ## Test
 

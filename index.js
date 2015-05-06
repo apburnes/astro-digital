@@ -28,6 +28,7 @@ function AstroDigital(options) {
   this.query = options.query || this.defaults.query;
   this.limitCount = options.limit || this.defaults.limitCount;
   this.skipCount = options.skip || this.defaults.skipCount;
+  this._error = null;
 
   this.request = Promise.promisifyAll(request.defaults({
     baseUrl: this.baseUrl,
@@ -38,6 +39,8 @@ function AstroDigital(options) {
 AstroDigital.prototype.search = search.search;
 AstroDigital.prototype.sceneId = search.sceneId;
 AstroDigital.prototype.cloudCover = search.cloudCover;
+AstroDigital.prototype.cloudCoverFull = search.cloudCoverFull;
+AstroDigital.prototype.acquisitionDate = search.acquisitionDate;
 AstroDigital.prototype.limit = search.limit;
 AstroDigital.prototype.skip = search.skip;
 

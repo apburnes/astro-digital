@@ -1,6 +1,6 @@
 {
   "name": "@apburnes/astro-digital",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A node client to the Astro Digital API",
   "main": "index.js",
   "scripts": {

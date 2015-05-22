@@ -167,6 +167,52 @@ This method can be prepended in a chain before the search is called to query sce
 
 Same as [`astro.cloudCover(range)`](#astrocloudcoverrange)
 
+#### astro.queryField(field, value)
+
+This method can be prepended in a chain before the search is called to query a field with a value.
+
+__Params__
+- `field`: String of field name
+- `value`: String or Number of field value;
+
+```js
+var field = 'sceneID';
+var value = 'LC80110442014358LGN00';
+
+astro
+  .queryField(field, value)
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    // handle result
+  });
+```
+
+#### astro.queryRange(field, range)
+
+This method can be prepended in a chain before the search is called to query a field with a value.
+
+__Params__
+- `field`: String of field name
+- `value`: Array of field value range;
+
+```js
+var field = 'cloudCover';
+var range = [0, 20];
+
+astro
+  .queryField(field, range)
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    // handle result
+  });
+```
+
 #### astro.and()
 
 This method can be prepended in a chain to filter scenes by fields using a sql like 'AND' operator.

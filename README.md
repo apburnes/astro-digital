@@ -163,6 +163,48 @@ This method can be prepended in a chain before the search is called to query sce
 
 Same as [`astro.cloudCover(range)`](#astrocloudcoverrange)
 
+#### astro.and()
+
+This method can be prepended in a chain to filter scenes by fields using a sql like 'AND' operator.
+
+```js
+// Finds scenes with cloud cover from 0% to 10% and between Jan 1, 2012 and Jan 1, 2014
+// https://api.astrodigital.com/v1/search?search=cloudCover:[0+TO+50]+AND+acquisitionDate:[2012-01-01+TO+2014-01-01]
+
+astro
+  .cloudCover([0, 10])
+  .and()
+  .acquisitionDate(['2012-01-01', '2014-01-01'])
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    // handle result
+  });
+```
+
+#### astro.or()
+
+This method can be prepended in a chain to filter scenes by fields using a sql like 'OR' operator.
+
+```js
+// Finds scenes with cloud cover from 0% to 10% or 90% to 100%
+// https://api.astrodigital.com/v1/search?search=cloudCover:[0+TO+10]+OR+cloudCover[90+TO+100]
+
+astro
+  .cloudCover([0, 10])
+  .or()
+  .cloudCover([90, 100])
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    // handle result
+  });
+```
+
 ## Test
 
 `$ npm test`

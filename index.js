@@ -41,6 +41,8 @@ AstroDigital.prototype.sceneId = search.sceneId;
 AstroDigital.prototype.cloudCover = search.cloudCover;
 AstroDigital.prototype.cloudCoverFull = search.cloudCoverFull;
 AstroDigital.prototype.acquisitionDate = search.acquisitionDate;
+AstroDigital.prototype.and = search.and;
+AstroDigital.prototype.or = search.or;
 AstroDigital.prototype.limit = search.limit;
 AstroDigital.prototype.skip = search.skip;
 

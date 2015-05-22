@@ -63,38 +63,6 @@ astro.search(query)
   });
 ```
 
-#### astro.sceneId(scene, [callback])
-
-If callback is not given, `astro.sceneId(query)` will return a promise.
-
-__Params__
-- `scene`: Scene ID String or Array of Scene ID Strings
-- `callback`: function(error, response, result)
-
-```js
-var scene = 'LC80110442014358LGN00';
-// or
-var scene = ['LC80110442014358LGN00', 'LC82281122014358LGN00'];
-
-// With a callback
-astro.sceneId(scene, function(err, response, result) {
-  if (err) {
-    // handle error
-  }
-
-  // handle results
-});
-
-// With a promise
-astro.sceneId(scene)
-  .spread(function(response, result) {
-    // handle response
-  })
-  .catch(function(err) {
-    // handle error
-  });
-```
-
 ### Chaining Search Queries
 
 #### astro.limit(count)
@@ -133,6 +101,42 @@ astro
 
     result // will return an object
            // with the 'results' array of 25 results after the firstskipping 100
+  });
+```
+
+#### astro.sceneId(scene)
+
+This method can be prepended in a chain before the search is called to query scenes by ID or array of IDs.
+
+__Params__
+- `scene`: Scene ID String or Array of Scene ID Strings
+- `callback`: function(error, response, result)
+
+```js
+var scene = 'LC80110442014358LGN00';
+// or
+var scene = ['LC80110442014358LGN00', 'LC82281122014358LGN00'];
+
+// With a callback
+astro
+  .sceneId(scene)
+  .search(function(err, response, result) {
+  if (err) {
+    // handle error
+  }
+
+  // handle results
+});
+
+// With a promise
+astro
+  .sceneId(scene)
+  .search()
+  .spread(function(response, result) {
+    // handle response
+  })
+  .catch(function(err) {
+    // handle error
   });
 ```
 

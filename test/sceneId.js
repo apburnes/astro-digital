@@ -27,24 +27,30 @@ describe('sceneId', function() {
   });
 
   it('should return a success 200 with the scene id with a callback', function(done) {
-    astro.sceneId(scene, function(err, res, result) {
-      expect(res.statusCode).to.equal(200);
-      expect(result).to.deep.equal(sceneFixture);
-      done(err);
-    });
+    astro
+      .sceneId(scene)
+      .search(function(err, res, result) {
+        expect(res.statusCode).to.equal(200);
+        expect(result).to.deep.equal(sceneFixture);
+        done(err);
+      });
   });
 
   it('should return a success 200 with the scene array with a callback', function(done) {
-    astro.sceneId(scenes, function(err, res, result) {
-      expect(res.statusCode).to.equal(200);
-      expect(result).to.deep.equal(scenesFixture);
-      done(err);
-    });
+    astro
+      .sceneId(scenes)
+      .search(function(err, res, result) {
+        expect(res.statusCode).to.equal(200);
+        expect(result).to.deep.equal(scenesFixture);
+        done(err);
+      });
   });
 
 
   it('should eturn a success 200 with the scene id with a promise', function() {
-    return astro.sceneId(scene)
+    return astro
+      .sceneId(scene)
+      .search()
       .spread(function(res, result) {
         expect(res.statusCode).to.equal(200);
         return expect(result).to.deep.equal(sceneFixture);
@@ -52,7 +58,9 @@ describe('sceneId', function() {
   });
 
   it('should eturn a success 200 with the scene array with a promise', function() {
-    return astro.sceneId(scenes)
+    return astro
+      .sceneId(scenes)
+      .search()
       .spread(function(res, result) {
         expect(res.statusCode).to.equal(200);
         return expect(result).to.deep.equal(scenesFixture);

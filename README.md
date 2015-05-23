@@ -181,6 +181,52 @@ astro
   });
 ```
 
+#### astro.rowAndPath(row, path)
+
+This method can be prepended in a chain before the search is called to query scenes in row `AND` path.
+
+__Params__
+- `row`: Number or Number String of the row
+- `path`: Number or Number String of the path
+
+```js
+var row = 11;
+var path = 2;
+
+astro
+  .rowAndPath(row, path)
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    // handle results
+  });
+```
+
+#### astro.rowOrPath(row, path)
+
+This method can be prepended in a chain before the search is called to query scenes in row `OR` path.
+
+__Params__
+- `row`: Number or Number String of the row
+- `path`: Number or Number String of the path
+
+```js
+var row = 11;
+var path = 2;
+
+astro
+  .rowOrPath(row, path)
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    // handle results
+  });
+```
+
 #### astro.cloudCover(range)
 
 This method can be prepended in a chain before the search is called to query scenes within the cloud cover field range.

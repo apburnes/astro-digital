@@ -110,7 +110,6 @@ This method can be prepended in a chain before the search is called to query sce
 
 __Params__
 - `scene`: Scene ID String or Array of Scene ID Strings
-- `callback`: function(error, response, result)
 
 ```js
 var scene = 'LC80110442014358LGN00';
@@ -121,12 +120,12 @@ var scene = ['LC80110442014358LGN00', 'LC82281122014358LGN00'];
 astro
   .sceneId(scene)
   .search(function(err, response, result) {
-  if (err) {
-    // handle error
-  }
+    if (err) {
+      // handle error
+    }
 
-  // handle results
-});
+    // handle results
+  });
 
 // With a promise
 astro
@@ -137,6 +136,48 @@ astro
   })
   .catch(function(err) {
     // handle error
+  });
+```
+
+#### astro.row(rowNumber)
+
+This method can be prepended in a chain before the search is called to query scenes by row.
+
+__Params__
+- `rowNumber`: Number or Number String of the row
+
+```js
+var rowNumber = 11;
+
+astro
+  .row(rowNumber)
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    // handle results
+  });
+```
+
+#### astro.path(pathNumber)
+
+This method can be prepended in a chain before the search is called to query scenes by path.
+
+__Params__
+- `pathNumber`: Number or Number String of the path
+
+```js
+var pathNumber = 11;
+
+astro
+  .row(pathNumber)
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    // handle results
   });
 ```
 

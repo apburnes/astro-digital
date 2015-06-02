@@ -46,6 +46,7 @@ AstroDigital.prototype.row = search.row;
 AstroDigital.prototype.rowAndPath = search.rowAndPath;
 AstroDigital.prototype.rowOrPath = search.rowOrPath;
 AstroDigital.prototype.xy = search.xy;
+AstroDigital.prototype.bbox = search.bbox;
 AstroDigital.prototype.queryField = search.queryField;
 AstroDigital.prototype.queryRange = search.queryRange;
 AstroDigital.prototype.and = search.and;

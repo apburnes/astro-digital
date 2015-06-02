@@ -254,6 +254,56 @@ This method can be prepended in a chain before the search is called to query sce
 
 Same as [`astro.cloudCover(range)`](#astrocloudcoverrange)
 
+#### astro.xy(longitude, latitude)
+
+This method can be prepended in a chain before the search is called to query scenes that intersect the XY(longitude, latitude) point.
+
+__Params__
+- `longitude`: Number representing the longitude
+- `latitude`: Number representing latitude
+
+```js
+var long = -112.12;
+var lat = 33.32;
+
+astro
+  .xy(long, lat)
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    results // all scenes that intersect the XY point
+  });
+```
+
+#### astro.bbox(xMin, yMin, xMax, yMax)
+
+This method can be prepended in a chain before the search is called to query scenes that intersect the bounding box extent.
+
+__Params__
+- `xMin`: Number representing the longitude minimum
+- `yMin`: Number representing the latitude minimum
+- `xMax`: Number representing the longitude maximum
+- `yMax`: Number representing the latitude maximum
+
+```js
+var xMin = -100;
+var yMin = 30;
+var xMax = -80;
+var yMax = 40;
+
+astro
+  .bbox(xMin, yMin, xMax, yMax)
+  .search(function(err, response, result) {
+    if (err) {
+      // handle error
+    }
+
+    results // all scenes that intersect the bbox extent
+  });
+```
+
 #### astro.queryField(field, value)
 
 This method can be prepended in a chain before the search is called to query a field with a value.

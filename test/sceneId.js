@@ -67,22 +67,10 @@ describe('sceneId', function() {
       });
   });
 
-  it('should return an Error when passed an object with a callback', function(done) {
-    astro.sceneId(obj, function(err) {
-      expect(err).to.be.instanceof(Error);
-      done();
-    });
-  });
-
-  it('hould return an Error when passed a number with a callback', function(done) {
-    astro.sceneId(num, function(err) {
-      expect(err).to.be.instanceof(Error);
-      done();
-    });
-  });
-
   it('should return an Error when passed an object with a promise', function() {
-    return astro.sceneId(obj)
+    return astro
+      .sceneId(obj)
+      .search()
       .catch(function(err) {
         return expect(err).to.be.instanceof(Error);
       });
@@ -90,7 +78,9 @@ describe('sceneId', function() {
 
 
   it('should return an Error when passed a number with a promise', function() {
-    return astro.sceneId(num)
+    return astro
+      .sceneId(num)
+      .search()
       .catch(function(err) {
         return expect(err).to.be.instanceof(Error);
       });

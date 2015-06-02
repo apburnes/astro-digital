@@ -4,10 +4,12 @@ var expect = require('chai').expect;
 
 var AstroDigital = require('../');
 
-var x = -77.0331808;
-var y = 38.9076835;
+var xMin = -100;
+var yMin = 30;
+var xMax = -80;
+var yMax = 40;
 
-describe('xy', function() {
+describe('bbox', function() {
   var astro;
 
   beforeEach(function(done) {
@@ -20,12 +22,13 @@ describe('xy', function() {
     done();
   });
 
-  it('should return a success 200 scences which overlay the XY coordinate', function() {
+  it('should return a success 200 with scences that fall within the bounding box', function() {
     return astro
-      .xy(x, y)
+      .bbox(xMin, yMin, xMax, yMax)
       .search()
       .spread(function(res, result) {
-        return expect(res.statusCode).to.equal(200);
+        expect(res.statusCode).to.equal(200);
+        return;
       });
   });
 });

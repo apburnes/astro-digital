@@ -1,9 +1,10 @@
 'use strict';
 
 var url = require('url');
-var Promise = require('bluebird');
+var _ = require('lodash');
 var request = require('request');
-var search = require('./lib/search')
+var Promise = require('bluebird');
+var search = require('./lib/search');
 
 var BASE_URL = 'https://api.astrodigital.com';
 var VERSION = require('./package.json').version;
@@ -36,22 +37,6 @@ function AstroDigital(options) {
   }));
 }
 
-AstroDigital.prototype.search = search.search;
-AstroDigital.prototype.sceneId = search.sceneId;
-AstroDigital.prototype.cloudCover = search.cloudCover;
-AstroDigital.prototype.cloudCoverFull = search.cloudCoverFull;
-AstroDigital.prototype.acquisitionDate = search.acquisitionDate;
-AstroDigital.prototype.path = search.path;
-AstroDigital.prototype.row = search.row;
-AstroDigital.prototype.rowAndPath = search.rowAndPath;
-AstroDigital.prototype.rowOrPath = search.rowOrPath;
-AstroDigital.prototype.xy = search.xy;
-AstroDigital.prototype.bbox = search.bbox;
-AstroDigital.prototype.queryField = search.queryField;
-AstroDigital.prototype.queryRange = search.queryRange;
-AstroDigital.prototype.and = search.and;
-AstroDigital.prototype.or = search.or;
-AstroDigital.prototype.limit = search.limit;
-AstroDigital.prototype.skip = search.skip;
+AstroDigital.prototype = _.merge(search);
 
 module.exports = AstroDigital;

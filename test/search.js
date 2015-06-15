@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 
 var AstroDigital = require('../');
 
-var query = 'sceneID:LC80110442014358LGN00'
+var query = 'sceneID:LC80110442014358LGN00';
 var invalidQuery = 'notaquery';
 
 var LC80110442014358LGN00 = require('./fixtures/LC80110442014358LGN00.json');

@@ -28,6 +28,44 @@ var options = {
 var astro = new AstroDigital(options);
 ```
 
+## Publish API
+
+#### astro.publish(email, sceneID, process, [satellite], [callback])
+
+If callback is not given, `astro.publish(email, sceneID, process)` will return a promise.
+
+__Params__
+- `email`: String of a valid email address
+- `sceneID`: String of a valid scene ID
+- `process`: String of valid process - options (`trueColor`, `vegHealth`, `urbanFalse`)
+- `satellite`: Optional String of satellite - Default `l8` "Landsat 8"
+- `callback`: Optional Function - `function(err, response, result)`
+
+```js
+var email = 'email@example.com';
+var sceneID = 'LC80351142015001LGN00';
+var processType = 'trueColor';
+var satellite = 'l8';
+
+// With a callback
+astro.publish(email, sceneID, processType, satellite, function(err, response, result) {
+  if (err) {
+    // handle error
+  }
+
+  // result
+});
+
+// With a promise
+astro.publish(email, sceneID, processType, satellite)
+  .spread(function(response, result) {
+    // handle result
+  })
+  .catch(function(err) {
+    // handle error
+  });
+```
+
 ## Search API
 
 #### astro.search([query], [callback])

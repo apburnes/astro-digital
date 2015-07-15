@@ -1,6 +1,6 @@
 node-astro-digital
 ==================
-A node client to the Astor Digital [API](http://docs.astrodigital.com/v1.0/docs)
+A node client to the Astro Digital [API](http://docs.astrodigital.com/v1.0/docs)
 
 ## Install
 

@@ -7,6 +7,7 @@ var Promise = require('bluebird');
 
 var search = require('./lib/search');
 var publish = require('./lib/publish');
+var methods = require('./lib/methods');
 
 var BASE_URL = 'https://api.astrodigital.com';
 var VERSION = require('./package.json').version;
@@ -39,6 +40,6 @@ function AstroDigital(options) {
   }));
 }
 
-AstroDigital.prototype = _.merge(search, publish);
+AstroDigital.prototype = _.merge(search, publish, methods);
 
 module.exports = AstroDigital;

@@ -430,6 +430,19 @@ astro
   });
 ```
 
+## Methods API
+
+#### astro.methods([callback])
+
+If callback is not given, `astro.methods()` will return a promise.
+
+__Params__
+- `callback`: Function [Optional] - `function(err, response, result)`
+  - `err`: Error
+  - `response`: Object - Request response information
+  - `result`: Object - Scene processing methods available for satellites
+
+
 ## Test
 
 `$ npm test`
